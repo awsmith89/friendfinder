@@ -5,7 +5,6 @@ $(document).ready(function () {
 
       subm.preventDefault();
 
-      // User input values
       var answersPush = {
           name: $("#name").val().trim(),
           image: $("#photo").val().trim(),
@@ -20,11 +19,10 @@ $(document).ready(function () {
 
       console.log(answersPush);
 
-      // Modal functionality. Answers pushed into modal
+
       $.post("/api/friends", answersPush, function (data) {
           console.log(data.name);
           console.log(data.photo);
-          // Populate and create modal with html
           $("#friends").html("<h3>" + data.name + "</h3> <br> <img  src=" + data.photo + "height='50%' width='50%'><br>" );
           $("#chosenFriend").modal("show");
       })
